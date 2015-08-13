@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="MatplotlibWidget" name="matplotlibwidget">
+    <property name="geometry">
+     <rect>
+      <x>189</x>
+      <y>40</y>
+      <width>511</width>
+      <height>421</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="comboBox">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>50</y>
+      <width>69</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>Sin(x)</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Cos(x)</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>110</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Draw!</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>MatplotlibWidget</class>
+   <extends>QWidget</extends>
+   <header>matplotlibwidget</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>comboBox</sender>
+   <signal>currentIndexChanged(int)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>update()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>102</x>
+     <y>81</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>156</x>
+     <y>85</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>matplotlibwidget</receiver>
+   <slot>update()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>90</x>
+     <y>144</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>208</x>
+     <y>222</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

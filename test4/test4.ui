@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>649</width>
+    <height>501</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>30</y>
+     <width>171</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>16</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Function: Sin(w.t)</string>
+   </property>
+  </widget>
+  <widget class="MatplotlibWidget" name="matplotlibwidget">
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>80</y>
+     <width>400</width>
+     <height>300</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QDial" name="dial">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>90</y>
+     <width>50</width>
+     <height>64</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>160</y>
+     <width>81</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>14</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>TextLabel</string>
+   </property>
+  </widget>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>MatplotlibWidget</class>
+   <extends>QWidget</extends>
+   <header>matplotlibwidget</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>dial</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>label_2</receiver>
+   <slot>setNum(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>46</x>
+     <y>125</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>50</x>
+     <y>169</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>dial</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>matplotlibwidget</receiver>
+   <slot>update()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>74</x>
+     <y>112</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>136</x>
+     <y>111</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

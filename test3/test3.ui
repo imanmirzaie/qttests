@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>568</width>
+    <height>422</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QLCDNumber" name="lcdNumber">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>100</y>
+     <width>141</width>
+     <height>61</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QDial" name="dial">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>270</y>
+     <width>50</width>
+     <height>64</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>340</y>
+     <width>41</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>14</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>0</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>dial</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>lcdNumber</receiver>
+   <slot>display(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>285</x>
+     <y>308</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>315</x>
+     <y>157</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>dial</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>label</receiver>
+   <slot>setNum(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>253</x>
+     <y>286</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>200</x>
+     <y>295</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
