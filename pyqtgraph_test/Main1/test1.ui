@@ -13,7 +13,7 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="PlotWidget" name="graphicsView">
+  <widget class="PlotWidget" name="graphicsView_time">
    <property name="geometry">
     <rect>
      <x>450</x>
@@ -27,7 +27,7 @@
    <property name="geometry">
     <rect>
      <x>130</x>
-     <y>460</y>
+     <y>400</y>
      <width>83</width>
      <height>24</height>
     </rect>
@@ -40,13 +40,49 @@
    <property name="geometry">
     <rect>
      <x>130</x>
-     <y>500</y>
+     <y>440</y>
      <width>83</width>
      <height>24</height>
     </rect>
    </property>
    <property name="text">
     <string>Measure</string>
+   </property>
+  </widget>
+  <widget class="PlotWidget" name="graphicsView_freq">
+   <property name="geometry">
+    <rect>
+     <x>450</x>
+     <y>320</y>
+     <width>451</width>
+     <height>301</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_liveStart">
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>540</y>
+     <width>83</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Live start</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_liveStop">
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>580</y>
+     <width>83</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Live stop</string>
    </property>
   </widget>
  </widget>

@@ -8,28 +8,40 @@ from PySide import QtCore, QtGui, QtUiTools
 import test1
 import numpy as np
 import pyaudio
+import time
 #import wave
 
 
-
 form = test1.Ui_Form()
-
 
 
 def setup_main(parent):
     form.setupUi(parent)
     QtCore.QObject.connect(form.pushButton_plot, QtCore.SIGNAL("clicked()"), plot)
     QtCore.QObject.connect(form.pushButton_measure,QtCore.SIGNAL('clicked()'),measure)
+    QtCore.QObject.connect(form.pushButton_liveStart,QtCore.SIGNAL('clicked()'),live_start)
 
+
+def live_start():
+    while 1:
+        measure()
+        time.sleep(3)
+        plot()
+        time.sleep(1)
 
 def plot():
     global frames
-    pw = form.graphicsView
-    pw.clear()
-    p1 = pw.plot()
-    dat_plot =  np.fromstring(np.array(frames),dtype='int16')
-    p1.setData(y=dat_plot)
 
+    yr =  np.fromstring(np.array(frames),dtype='int16')
+    xr = np.arange(len(yr))
+
+    pw = form.graphicsView_time
+    pw.clear()
+    pw.setXRange(xr[0],xr[-1])
+    pw.setYRange(yr.min(),yr.max())
+
+    p1 = pw.plot()
+    p1.setData(y=yr,x=xr)
 
 
 def measure():
@@ -64,14 +76,8 @@ def measure():
     p.terminate()
 
 
-def rand(n):
-    data = np.random.random(n)
-    data[int(n*0.1):int(n*0.13)] += .5
-    data[int(n*0.18)] += 2
-    data[int(n*0.1):int(n*0.13)] *= 5
-    data[int(n*0.18)] *= 20
-    data *= 1e-12
-    return data, np.arange(n, n+len(data)) / float(n)
+
+
 
 
 if __name__ == "__main__":
